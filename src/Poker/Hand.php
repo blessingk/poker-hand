@@ -30,4 +30,9 @@ class Hand
         $evaluator = new Handler();
         return $evaluator->evaluate($this->cards);
     }
+
+    public function getCards() {
+        return $this->cards;
+    }
+
 }
