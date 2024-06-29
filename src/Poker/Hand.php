@@ -2,10 +2,6 @@
 
 namespace Poker;
 
-use Handler;
-use Card;
-
-
 class Hand
 {
     private $cards = [];

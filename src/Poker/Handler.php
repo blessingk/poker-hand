@@ -1,6 +1,6 @@
 <?php
 
-namespace Poker\Poker;
+namespace Poker;
 class Handler
 {
     public function evaluate($cards) : string
@@ -28,7 +28,6 @@ class Handler
                 return 'High Card';
         }
     }
-
     private function isRoyalFlush($cards)
     {
         return $this->isStraightFlush($cards) && $this->containsAce($cards);
