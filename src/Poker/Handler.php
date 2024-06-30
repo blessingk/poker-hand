@@ -3,7 +3,11 @@
 namespace Poker;
 class Handler
 {
-    public function evaluate($cards) : string
+    /**
+     * @param array $cards
+     * @return string
+     */
+    public function evaluate(array $cards) : string
     {
         switch (true) {
             case $this->isRoyalFlush($cards):
@@ -28,17 +32,30 @@ class Handler
                 return 'High Card';
         }
     }
-    private function isRoyalFlush($cards)
+
+    /**
+     * @param array $cards
+     * @return bool
+     */
+    private function isRoyalFlush(array $cards): bool
     {
         return $this->isStraightFlush($cards) && $this->containsAce($cards);
     }
 
-    private function isStraightFlush($cards)
+    /**
+     * @param array $cards
+     * @return bool
+     */
+    private function isStraightFlush(array $cards): bool
     {
         return $this->isFlush($cards) && $this->isStraight($cards);
     }
 
-    private function isFourOfAKind($cards)
+    /**
+     * @param array $cards
+     * @return bool
+     */
+    private function isFourOfAKind(array $cards): bool
     {
         $ranks = array_map(function($card) {
             return $card->rank;
@@ -48,7 +65,11 @@ class Handler
         return max($rankCounts) == 4;
     }
 
-    private function isFullHouse($cards)
+    /**
+     * @param array $cards
+     * @return bool
+     */
+    private function isFullHouse(array $cards): bool
     {
         $ranks = array_map(function($card) {
             return $card->rank;
@@ -62,7 +83,11 @@ class Handler
             })) == 1;
     }
 
-    private function isFlush($cards)
+    /**
+     * @param array $cards
+     * @return bool
+     */
+    private function isFlush(array $cards): bool
     {
         $suits = array_map(function($card) {
             return $card->suit;
@@ -71,7 +96,11 @@ class Handler
         return count(array_unique($suits)) == 1;
     }
 
-    private function isStraight($cards)
+    /**
+     * @param array $cards
+     * @return bool
+     */
+    private function isStraight(array $cards): bool
     {
         $ranks = array_map(function($card) {
             return $this->rankValue($card->rank);
@@ -88,7 +117,11 @@ class Handler
         return true;
     }
 
-    private function isThreeOfAKind($cards)
+    /**
+     * @param array $cards
+     * @return bool
+     */
+    private function isThreeOfAKind(array $cards): bool
     {
         $ranks = array_map(function($card) {
             return $card->rank;
@@ -98,7 +131,11 @@ class Handler
         return max($rankCounts) == 3;
     }
 
-    private function isTwoPair($cards)
+    /**
+     * @param array $cards
+     * @return bool
+     */
+    private function isTwoPair(array $cards): bool
     {
         $ranks = array_map(function($card) {
             return $card->rank;
@@ -112,7 +149,11 @@ class Handler
         return count($pairs) == 2;
     }
 
-    private function isOnePair($cards)
+    /**
+     * @param array $cards
+     * @return bool
+     */
+    private function isOnePair(array $cards): bool
     {
         $ranks = array_map(function($card) {
             return $card->rank;
@@ -126,7 +167,11 @@ class Handler
         return count($pairs) == 1;
     }
 
-    private function containsAce($cards)
+    /**
+     * @param array $cards
+     * @return bool
+     */
+    private function containsAce(array $cards): bool
     {
         foreach ($cards as $card) {
             if ($card->rank == 'A') {
@@ -136,7 +181,11 @@ class Handler
         return false;
     }
 
-    private function rankValue($rank)
+    /**
+     * @param $rank
+     * @return int
+     */
+    private function rankValue($rank): int
     {
         $rankValues = ['2' => 2, '3' => 3, '4' => 4, '5' => 5, '6' => 6, '7' => 7, '8' => 8, '9' => 9, '10' => 10, 'J' => 11, 'Q' => 12, 'K' => 13, 'A' => 14];
         return $rankValues[$rank];
