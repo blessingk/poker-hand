@@ -11,7 +11,7 @@ header('Content-Type: application/json');
 $requestMethod = $_SERVER['REQUEST_METHOD'];
 if ($requestMethod === 'POST') {
     $input = json_decode(file_get_contents('php://input'), true);
-    if (isset($input['cards']) && is_array($input['cards'])) {
+    if (isset($input['cards']) && is_string($input['cards'])) {
         $hand = new Hand($input['cards']);
         $evaluator = new Handler();
         $result = $evaluator->evaluate($hand->getCards());

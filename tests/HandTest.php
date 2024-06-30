@@ -7,7 +7,7 @@ class HandTest extends TestCase
 {
     public function testHandCreation()
     {
-        $hand = new Hand(['AS', '10C', '10H', '3D', '3S']);
+        $hand = new Hand('AS, 10C, 10H, 3D, 3S');
         $cards = $hand->getCards();
 
         $this->assertCount(5, $cards);

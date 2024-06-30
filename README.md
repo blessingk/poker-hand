@@ -42,3 +42,14 @@ This project evaluates the best poker hand that can be constructed from a given 
 1. **Run a specific test file**
     ```bash
    ./vendor/bin/phpunit tests/HandlerTest.php
+   
+## Start the PHP built-in server
+
+1. **Run the command below**
+    ```bash
+   php -S localhost:8000 -t public
+
+2. **Send a POST request to the API**
+    ```bash
+    curl -X POST http://localhost:8000 -d '{"cards":"AS, 10C, 10H, 3D, 3S"}' -H "Content-Type: application/json"
+

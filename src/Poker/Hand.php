@@ -9,8 +9,9 @@ class Hand
     /**
      * @param array $cards
      */
-    public function __construct(array $cards)
+    public function __construct(string $cards)
     {
+        $cards = explode(', ', $cards);
         foreach ($cards as $card) {
             $this->addCard(new Card(substr($card, 0, -1), substr($card, -1)));
         }
