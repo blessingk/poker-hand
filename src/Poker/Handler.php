@@ -1,7 +1,9 @@
 <?php
 
 namespace Poker;
-class Handler
+use Poker\Contracts\HandlerInterface;
+
+class Handler implements HandlerInterface
 {
     /**
      * @param array $cards

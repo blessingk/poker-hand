@@ -2,7 +2,9 @@
 
 namespace Poker;
 
-class Card
+use Poker\Contracts\CardInterface;
+
+class Card implements CardInterface
 {
     public $rank;
     public $suit;

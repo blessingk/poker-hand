@@ -2,7 +2,9 @@
 
 namespace Poker;
 
-class Hand
+use Poker\Contracts\HandInterface;
+
+class Hand implements HandInterface
 {
     private $cards = [];
 
