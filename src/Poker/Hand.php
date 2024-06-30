@@ -2,18 +2,14 @@
 
 namespace Poker;
 
-use Handler;
-use Card;
-
-
 class Hand
 {
     private $cards = [];
 
     /**
-     * @param $cards
+     * @param array $cards
      */
-    public function __construct($cards)
+    public function __construct(array $cards)
     {
         foreach ($cards as $card) {
             $this->addCard(new Card(substr($card, 0, -1), substr($card, -1)));
@@ -29,9 +25,21 @@ class Hand
         $this->cards[] = $card;
     }
 
-    public function evaluateHand()
+    /**
+     * @return string
+     */
+    public function evaluateHand(): string
     {
         $evaluator = new Handler();
         return $evaluator->evaluate($this->cards);
     }
+
+    /**
+     * @return array
+     */
+    public function getCards(): array
+    {
+        return $this->cards;
+    }
+
 }

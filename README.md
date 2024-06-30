@@ -3,12 +3,12 @@
 This project evaluates the best poker hand that can be constructed from a given set of playing cards.
 
 ## Project Structure
-- `src/`: Contains the main source code for the project.
+- `src/Poker/`: Contains the main source code for the project.
     - `Card.php`: Represents a playing card.
     - `Hand.php`: Represents a hand of playing cards.
     - `Handler.php`: Contains logic to evaluate the best poker hand.
 - `tests/`: Contains the PHPUnit test cases.
-    - `PokerHandlerTest.php`: Tests for the `Handler` class.
+    - `HandlerTest.php`: Tests for the `Handler` class.
 - `vendor/`: Contains dependencies managed by Composer.
 - `composer.json`: Composer configuration file.
 - `composer.lock`: Composer lock file.
@@ -41,4 +41,4 @@ This project evaluates the best poker hand that can be constructed from a given 
 
 1. **Run a specific test file**
     ```bash
-   ./vendor/bin/phpunit tests/PokerHandlerTest.php
+   ./vendor/bin/phpunit tests/HandlerTest.php
